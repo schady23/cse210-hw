@@ -43,4 +43,4 @@ namespace ScriptureMemoryGame
             HiddenWords.Add(Words[index]);
         }
     }
-}
+} 
