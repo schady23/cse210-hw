@@ -4,12 +4,9 @@ using System.IO;
 public class GoalManagement
 
 {
-    // Attributes
     private List<Goal> _goals = new List<Goal>();
     private int _totalPoints;
 
-
-    // Constructors
     public GoalManagement()
     {
         _totalPoints = 0;
@@ -39,7 +36,6 @@ public class GoalManagement
         return _goals;
     }
 
-    // Methods
     public void ListGoals()
     {
         if (_goals.Count() > 0)
@@ -47,7 +43,6 @@ public class GoalManagement
             Console.WriteLine("\nYour Goals are:");
 
             int index = 1;
-            // Loop though goals list
             foreach (Goal goal in _goals)
             {
                 goal.ListGoal(index);
@@ -63,7 +58,7 @@ public class GoalManagement
     {
         ListGoals();
 
-        Console.Write("\nWhich goal did you accomplished?  ");
+        Console.Write("\nWhich goal did you accomplish?  ");
         int select = int.Parse(Console.ReadLine())-1;
 
         int goalPoints = GetGoalsList()[select].GetPoints();
@@ -71,7 +66,7 @@ public class GoalManagement
 
         GetGoalsList()[select].RecordGoalEvent(_goals);
 
-        Console.WriteLine($"\n*** You have {GetTotalPoints()} points! ***\n");
+        Console.WriteLine($"\n*** You have {GetTotalPoints()} bananas! ***\n");
     }
     public void SaveGoals()
     {
@@ -81,9 +76,7 @@ public class GoalManagement
 
         using (StreamWriter outputFile = new StreamWriter(userFileName))
         {
-            // Save Total Points
             outputFile.WriteLine(GetTotalPoints());
-            // Save goals list
             foreach (Goal goal in _goals)
             {
                 outputFile.WriteLine(goal.SaveGoal());
@@ -100,13 +93,9 @@ public class GoalManagement
         if (File.Exists(userFileName))
         {
             string[] readText = File.ReadAllLines(userFileName);
-
-            // read the first line of text file for total stored points
             int totalPoints = int.Parse(readText[0]);
             SetTotalPoints(totalPoints);
-            // skip the first line of text file to read to goals
             readText = readText.Skip(1).ToArray();
-            // loop though text file for goals
             foreach (string line in readText)
             {
                 string[] entries = line.Split("; ");
@@ -143,6 +132,4 @@ public class GoalManagement
             }
         }
     }
-
-
 }

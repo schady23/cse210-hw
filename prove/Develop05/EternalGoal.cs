@@ -2,12 +2,9 @@ using System;
 
 public class EternalGoal : Goal
 {
-    // Attributes
     private string _type = "Eternal Goal:";
     private bool _status;
 
-
-    // Constructors
     public EternalGoal(string type, string name, string description, int points) : base(type, name, description, points)
     {
         _status = false;
@@ -17,7 +14,6 @@ public class EternalGoal : Goal
         _status = status;
     }
 
-    // Methods
 
     public override void ListGoal(int i)
     {
@@ -35,6 +31,4 @@ public class EternalGoal : Goal
     {
        Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!");
     }
-
-
 }

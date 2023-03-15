@@ -2,7 +2,6 @@ using System;
 
 public class ChecklistGoal : Goal
 {
-    // Attributes
     private string _type = "Check List Goal:";
     private int _numberTimes;
     private int _bonusPoints;
@@ -10,7 +9,6 @@ public class ChecklistGoal : Goal
     private int _count;
 
 
-    // Constructors
     public ChecklistGoal(string type, string name, string description, int points, int numberTimes, int bonusPoints) : base(type, name, description, points)
     {
         _status = false;
@@ -51,7 +49,6 @@ public class ChecklistGoal : Goal
         return _status;
     }
 
-    // Methods
     public override void ListGoal(int i)
     {
         if (Finished() == false)
